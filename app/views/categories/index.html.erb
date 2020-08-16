@@ -1,0 +1,9 @@
+<%@categories.each do |category|%>
+  <li class="nav-item">
+    <%= link_to category.name.capitalize, category_path(category), class: "nav-link"%>
+  </li>
+<%end%>
+<br>
+<%if current_user.isadmin%>
+  <%= link_to "Add Category", new_category_path, class: "nav-link"%>
+<%end%>

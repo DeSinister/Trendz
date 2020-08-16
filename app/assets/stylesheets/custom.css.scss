@@ -1,0 +1,24 @@
+@import "font-awesome";
+@import "bootstrap-sprockets";
+
+//--------------------Navbar-----------------------------------
+.navbar-brand{
+  font-size: 1.5rem !important;
+  font-weight: 300;
+}
+.nav-item{
+  font-size: 1.2rem !important;
+  font-weight: 400;
+}
+.no-decoration{
+  margin: none;
+  border: none;
+  background: none;
+  margin: none;
+  color: white;
+  margin-top: 10px;
+}
+.nav-link{
+  margin-left: 3px;
+  margin-right: 3px;
+}

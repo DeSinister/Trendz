@@ -1,0 +1,10 @@
+<h1 class="jumbotron">New Category</h1>
+
+<div class="container">
+  Current Name: <%=@category.name%>
+  <%= form_for @category, :url => create_category_path(@category), method: :post, class: "form-horizontal" do |f|%>
+    <%= f.text_field :name%>
+    <%= f.button :submit%>
+  <%end%>
+  <%= link_to 'Back', categories_path%>
+</div>

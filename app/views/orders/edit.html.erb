@@ -1,0 +1,32 @@
+<h1 class="jumbotron"><%=@product.name.capitalize%></h1>
+<div class="container">
+  <div>
+    <div class= "col-9 center">
+      <p><%=@product.description%></p>
+      <p><small>SCG</small> <%=@product.price%></p>
+    </div>
+
+
+
+    <div class="container">
+      <%if !@bought%>
+        <%= form_for @order, :url => update_order_path, method: :patch do |f| %>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <strong><%= f.label :quantity %> :</strong>
+              <%= f.text_field :quantity, autofocus: true, class: 'form-control'%>
+              <%= hidden_field_tag :id, @order.id %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit 'Update',  class: 'btn btn-primary' %>
+          </div>
+        <%end%>
+      <%end%>
+
+  </div>
+</div>
+<div class="float-right">
+  <%=link_to 'Back', my_cart_path%>
+</div>

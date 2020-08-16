@@ -1,0 +1,36 @@
+<h1 class="jumbotron"><%=@product.name.capitalize%></h1>
+<div class="container">
+  <div class="row">
+    <div class= "col-9 center">
+      <p><%=@product.description%></p>
+      <p><small>USD</small> <%=@product.price%> $</p>
+    </div>
+
+  </div>
+  <%o = Order.where(product: @product, user: current_user).first%>
+  <%if o%>
+    <%link_to 'Show in Cart', my_cart_path%>
+  <%else%>
+    <%=link_to "Proceed", new_order_path(id: @product.id)%>
+  <%end%>
+  <div class="float-right">
+    <%=link_to 'Back', products_path%>
+  </div>
+  <%if @order%>
+    <%=link_to 'Go To Cart', my_cart_path%>
+    <%= button_to destroy_order_path(@order), method: :delete, data: {confirm: 'Are you sure.?'}, class: 'btn same1 btn-danger btn-sm mb mt' do %>
+      <span><%=fa_icon("trash")%><span class = "toggle"> Remove from Cart</span></span>
+    <%end%>
+  <%end%>
+
+  <%if current_user.isadmin%>
+  <%= button_to destroy_product_path(@product), method: :delete, data: {confirm: 'Are you sure.?'}, class: 'btn same1 btn-danger btn-sm mb mt' do %>
+    <span><%=fa_icon("trash")%><span class = "toggle"> Delete</span></span>
+  <%end%>
+  <%= button_to edit_product_path(@product), method: :get,  class: 'btn same1 btn-secondary btn-sm mb mt' do %>
+    <span><%=fa_icon("edit")%><span class = "toggle"> Edit</span></span>
+  <%end%>
+
+  <%end%>
+
+</div>

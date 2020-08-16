@@ -1,0 +1,49 @@
+<h1 class="jumbotron"> My Cart</h1>
+<br><Br>
+
+<div class="row">
+  <div class="col-9 col-10 col-9-md col-10-xs">
+    <table class="table table-striped table-dark table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Sno.</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Categories</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% r = 1 %>
+        <%@orders.each do |order|%>
+          <tr>
+            <td scope = "row"><%= r %></td>
+            <td scope = "row"><%=order.name%></td>
+            <td scope = "row">
+              <%order.categories.each do |cat|%>
+                <%=cat.name%>
+              <%end%>
+            </td>
+            <td scope = "row"><%=order.price%></td>
+            <%os = Order.where(user: current_user, product: order).first%>
+            <td scope = "row"><%=os.quantity%></td>
+            <td scope = "row">
+              <div class="inline">
+                <%= button_to destroy_order_path(os), method: :delete, data: {confirm: 'Are you sure.?'}, class: 'btn same1 btn-danger btn-sm mb mt' do %>
+                  <span><%=fa_icon("trash")%><span class = "toggle"> Delete</span></span>
+                <%end%>
+                <%= button_to edit_order_path(os), method: :get,  class: 'btn same1 btn-secondary btn-sm mb mt' do %>
+                  <span><%=fa_icon("edit")%><span class = "toggle"> Edit</span></span>
+                <%end%>
+              </div>
+            </td>
+          </tr>
+          <%r += 1%>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+    <Br><br>

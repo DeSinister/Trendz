@@ -1,0 +1,12 @@
+<h1 class="jumbotron">Welcome to Trendz Shopping App!</h1>
+
+<div class="container">
+  <div class="row">
+    <%= render partial: "shared/product", collection: @products%>
+  </div>
+
+  <%if current_user.isadmin%>
+    <%= link_to "Add Product", new_product_path, class: "nav-link"%>
+  <%end%>
+
+</div>

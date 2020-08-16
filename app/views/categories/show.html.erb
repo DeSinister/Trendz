@@ -1,0 +1,16 @@
+<h1 class="jumbotron">Welcome to Trendz Shopping App! ! <%=@category.name%></h1>
+
+<div class="container">
+  <div class="row">
+    <%= render partial: "shared/product", collection: @products%>
+  </div>
+</div>
+<%if current_user.isadmin%>
+<%= button_to destroy_category_path(@category), method: :delete, data: {confirm: 'Are you sure.?'}, class: 'btn same1 btn-danger btn-sm mb mt' do %>
+  <span><%=fa_icon("trash")%><span class = "toggle"> Delete</span></span>
+<%end%>
+<%= button_to edit_category_path(@category), method: :get,  class: 'btn same1 btn-secondary btn-sm mb mt' do %>
+  <span><%=fa_icon("edit")%><span class = "toggle"> Edit</span></span>
+<%end%>
+  
+<%end%>

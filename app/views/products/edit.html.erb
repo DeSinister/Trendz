@@ -1,0 +1,12 @@
+<h1 class="jumbotron">Edit Product</h1>
+
+<div class="container">
+  <%= simple_form_for @product, :url => update_product_path(@product), class: "form-horizontal" do |f|%>
+    <%= f.input :name%>
+    <%= f.input :description%>
+    <%= f.input :price%>
+    <%= f.association :categories, collection: Category.all, as: :check_boxes, include_hidden: false%>
+    <%= f.button :submit%>
+  <%end%>
+  <%= link_to 'Back', products_path%>
+</div>
