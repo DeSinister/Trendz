@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  #devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations" }, views: { registerations: "users/registerations"}
   root 'welcome#index'
 
   resources :products
@@ -28,5 +29,5 @@ Rails.application.routes.draw do
   patch 'update_order', to: 'orders#update'
   get 'my_cart', to: 'orders#cart'
 
-  
+
 end

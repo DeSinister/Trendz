@@ -249,7 +249,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
-  bootstrap-sass (= 3.3.6)
+  bootstrap-sass (~> 3.3.6)
   braintree (~> 2.33.1)
   byebug
   capybara (>= 2.15)

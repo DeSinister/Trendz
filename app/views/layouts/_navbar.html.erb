@@ -34,7 +34,10 @@
         <div class = "nav-item float-right">
           <div class="dropdown">
             <button class="dropdown-toggle no-decoration" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= fa_icon "user"%> <%=current_user.first_name + " " + current_user.last_name%>
+              <%= fa_icon "user"%>
+                <%if current_user.first_name%>
+                  <%=current_user.first_name + " " + current_user.last_name%>
+                <%end%>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <%= link_to edit_user_registration_path, class: 'dropdown-item' do %>

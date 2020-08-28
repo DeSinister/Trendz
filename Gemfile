@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
-gem 'bootstrap-sass', '3.3.6'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 gem  'slim-rails'
 gem 'simple_form'
